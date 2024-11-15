@@ -1,4 +1,6 @@
-//Create a function for randomly generating Comp choice
+
+
+//Function for randomly generating Comp choice
 function getComputerChoice(){
     let randomNumber = Math.floor(Math.random()*3);
     let computerChoice
@@ -12,10 +14,11 @@ function getComputerChoice(){
     return computerChoice;
 }
 
-//Create prompt for Player choice
+//Prompt for Player choice
 function getHumanChoice(){
     let choiceLoop = true;
     let humanChoice;
+    //Prompt will keep asking until a valid answer is inputted
     while (choiceLoop === true){
         let humanAnswer = prompt("Choose one: (R)ock, (P)aper, (S)cissors");
         humanAnswer = humanAnswer.toUpperCase();
@@ -38,9 +41,11 @@ function getHumanChoice(){
     return humanChoice;
 }
 
-//Create logic for Rock>Scissors, Scissors>Paper, Paper>Rock, Tie if a draw
+//Function containing the process of a game round
 function playRound(humanChoice, computerChoice){
+    //Display player choices
     console.log("User: " + humanChoice + " vs. Computer: " + computerChoice)
+    //Logic for determining who wins
     if (humanChoice === "Rock" && computerChoice === "Scissors"){
         console.log("Rock beats Scissors, you win!")
         humanScore++
@@ -62,6 +67,7 @@ function playRound(humanChoice, computerChoice){
     } else {
         console.log(humanChoice + " vs. " + computerChoice + ": tie!")
     }
+    //Displays the current score
     console.log("User: " + humanScore + "\nComputer: " + computerScore);
 }
 
@@ -77,7 +83,7 @@ function winner(humanScore, computerScore){
 }
 
 //Plays 5 rounds, prompting new values for human & comp choice each time
-// function playGame(){
+function playGame(){
     for (let i=0; i<5; i++){
         console.log("---- Round " + (i+1) + " ----"); //Displays the round number
         //Create a variable for Comp choice and Player choice
@@ -92,4 +98,5 @@ function winner(humanScore, computerScore){
 let computerScore = 0;
 let humanScore = 0;
 
+//Calls function to begin game
 playGame()
