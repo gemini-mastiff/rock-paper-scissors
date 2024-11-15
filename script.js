@@ -65,22 +65,31 @@ function playRound(humanChoice, computerChoice){
     console.log("User: " + humanScore + "\nComputer: " + computerScore);
 }
 
-function playGame(){
-    for (let i=0; i<5; i++){
-        console.log("---- Round " + (i+1) + " ----")
-        computerChoice = getComputerChoice();
-        humanChoice = getHumanChoice();
-        playRound(humanChoice, computerChoice);
+//Function to determine winner of the game
+function winner(humanScore, computerScore){
+    if (humanScore>computerScore){
+        console.log("Congratulations! You won!");
+    } else if (humanScore<computerScore){
+        console.log("You lost! Better luck next time!");
+    } else{
+        console.log("It's a tie!")
     }
 }
 
-//Create a variable for the Comp choice
-let computerChoice;
-//Create a variable for the Player choice
-let humanChoice;
-//Create an int variable for Comp score
+//Plays 5 rounds, prompting new values for human & comp choice each time
+// function playGame(){
+    for (let i=0; i<5; i++){
+        console.log("---- Round " + (i+1) + " ----"); //Displays the round number
+        //Create a variable for Comp choice and Player choice
+        let computerChoice = getComputerChoice();
+        let humanChoice = getHumanChoice();
+        playRound(humanChoice, computerChoice);
+    }
+    winner(humanScore, computerScore)    
+}
+
+//Create an int variable for Comp score and Player score
 let computerScore = 0;
-//Create an int variable for Player score
 let humanScore = 0;
 
 playGame()
