@@ -59,27 +59,28 @@ function playRound(humanChoice, computerChoice){
     } else if (humanChoice === "Paper" && computerChoice === "Scissors"){
         console.log("Scissors beat Paper, you lose!")
         computerScore++
+    } else {
+        console.log(humanChoice + " vs. " + computerChoice + ": tie!")
     }
-    console.log("User: " + humanScore + "\nComputer: " + computerScore)
+    console.log("User: " + humanScore + "\nComputer: " + computerScore);
 }
-//Find out who wins
-//Increment respective score by +1
+
+function playGame(){
+    for (let i=0; i<5; i++){
+        console.log("---- Round " + (i+1) + " ----")
+        computerChoice = getComputerChoice();
+        humanChoice = getHumanChoice();
+        playRound(humanChoice, computerChoice);
+    }
+}
 
 //Create a variable for the Comp choice
-const computerChoice = getComputerChoice();
+let computerChoice;
 //Create a variable for the Player choice
-// const humanChoice = getHumanChoice();
+let humanChoice;
 //Create an int variable for Comp score
 let computerScore = 0;
 //Create an int variable for Player score
 let humanScore = 0;
 
-
-//Store Player choice inside of variable
-
-
-//Create a loop that plays 5 rounds in one game
-//At the end of the game, compare scores
-//Highest points is the winner
-
-playRound(humanChoice, computerChoice)
+playGame()
