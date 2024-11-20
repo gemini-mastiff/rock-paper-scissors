@@ -2,6 +2,9 @@ const rBtn = document.querySelector("#rock");
 const pBtn = document.querySelector("#paper");
 const sBtn = document.querySelector("#scissors");
 
+const results = document.querySelector("#results");
+const score = document.querySelector("#score");
+
 //Function for randomly generating Comp choice
 function getComputerChoice(){
     let randomNumber = Math.floor(Math.random()*3);
