@@ -2,9 +2,11 @@ const rBtn = document.querySelector("#rock");
 const pBtn = document.querySelector("#paper");
 const sBtn = document.querySelector("#scissors");
 
+const resultBoard = document.querySelector("#resultBoard");
 const results = document.querySelector("#results");
 const winner = document.querySelector("#winner");
 const score = document.querySelector("#score");
+const winAnnounce = document.createElement("h2");
 
 //Function for randomly generating Comp choice
 function getComputerChoice(){
@@ -22,6 +24,22 @@ function getComputerChoice(){
 
 function displayResults(humanChoice, computerChoice){
     results.textContent = `P: ${humanChoice} vs. C: ${computerChoice}`
+}
+
+function displayScore(){
+    score.textContent = `P: ${humanScore}\nC: ${computerScore}`;
+}
+
+//Function to determine winner of the game
+function displayFinalScore(){
+    if (humanScore>computerScore){
+        winAnnounce.textContent = `Congratulations! You won!`;
+    } else if (humanScore<computerScore){
+        winAnnounce.textContent = `You lost! Better luck next time!`;
+    } else{
+        winAnnounce.textContent = `It's a tie!`;
+    }
+    resultBoard.insertBefore(winAnnounce, score)
 }
 
 //Function containing the process of a game round
@@ -44,17 +62,10 @@ function playRound(humanChoice){
         winner.textContent = `${humanChoice} vs. ${computerChoice}: tie!`;
     }
     //Displays the current score
-    console.log("User: " + humanScore + "\nComputer: " + computerScore);
-}
-
-//Function to determine winner of the game
-function finalScore(humanScore, computerScore){
-    if (humanScore>computerScore){
-        console.log("Congratulations! You won!");
-    } else if (humanScore<computerScore){
-        console.log("You lost! Better luck next time!");
-    } else{
-        console.log("It's a tie!")
+    displayScore();
+    if (humanScore === 5 
+        || computerScore === 5){
+            displayFinalScore();
     }
 }
 
