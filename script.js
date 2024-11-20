@@ -16,33 +16,6 @@ function getComputerChoice(){
     return computerChoice;
 }
 
-//Prompt for Player choice
-function getHumanChoice(){
-    let choiceLoop = true;
-    let humanChoice;
-    //Prompt will keep asking until a valid answer is inputted
-    while (choiceLoop === true){
-        let humanAnswer = prompt("Choose one: (R)ock, (P)aper, (S)cissors");
-        humanAnswer = humanAnswer.toUpperCase();
-        if (humanAnswer === "R"
-        || humanAnswer === "ROCK"){
-            humanChoice = "Rock";
-            choiceLoop = false
-        } else if (humanAnswer === "P"
-        || humanAnswer === "PAPER"){
-            humanChoice = "Paper";
-            choiceLoop = false
-        } else if (humanAnswer === "S"
-        || humanAnswer === "SCISSORS"){
-            humanChoice = "Scissors";
-            choiceLoop = false
-        } else {
-            console.log("Please input a valid answer.");
-        }
-    }
-    return humanChoice;
-}
-
 //Function containing the process of a game round
 function playRound(humanChoice){
     let computerChoice = getComputerChoice()
