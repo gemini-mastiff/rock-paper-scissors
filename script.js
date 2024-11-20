@@ -44,7 +44,8 @@ function getHumanChoice(){
 }
 
 //Function containing the process of a game round
-function playRound(humanChoice, computerChoice){
+function playRound(humanChoice){
+    let computerChoice = getComputerChoice()
     //Display player choices
     console.log("User: " + humanChoice + " vs. Computer: " + computerChoice)
     //Logic for determining who wins
@@ -88,6 +89,12 @@ function winner(humanScore, computerScore){
 let computerScore = 0;
 let humanScore = 0;
 
-//Calls function to begin game
-// playGame()
-
+rBtn.addEventListener("click", () => {
+    playRound("Rock");
+});
+pBtn.addEventListener("click", () => {
+    playRound("Paper")
+});
+sBtn.addEventListener("click", () => {
+    playRound("Scissors")
+});
