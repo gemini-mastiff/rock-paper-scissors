@@ -1,4 +1,6 @@
-
+const rBtn = document.querySelector("#rock");
+const pBtn = document.querySelector("#paper");
+const sBtn = document.querySelector("#scissors");
 
 //Function for randomly generating Comp choice
 function getComputerChoice(){
@@ -87,4 +89,5 @@ let computerScore = 0;
 let humanScore = 0;
 
 //Calls function to begin game
-playGame()
+// playGame()
+
