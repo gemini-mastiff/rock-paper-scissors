@@ -82,18 +82,6 @@ function winner(humanScore, computerScore){
     }
 }
 
-//Plays 5 rounds, prompting new values for human & comp choice each time
-function playGame(){
-    for (let i=0; i<5; i++){
-        console.log("---- Round " + (i+1) + " ----"); //Displays the round number
-        //Create a variable for Comp choice and Player choice
-        let computerChoice = getComputerChoice();
-        let humanChoice = getHumanChoice();
-        playRound(humanChoice, computerChoice);
-    }
-    winner(humanScore, computerScore)    
-}
-
 //Create an int variable for Comp score and Player score
 let computerScore = 0;
 let humanScore = 0;
